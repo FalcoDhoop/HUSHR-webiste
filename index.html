@@ -8,6 +8,7 @@
 
   <!-- custom responsive rules -->
   <style>
+    /* Logo adjustments under 500px */
     @media (max-width: 500px) {
       .logo-mobile {
         left: 50% !important;
@@ -17,13 +18,11 @@
     }
   </style>
 </head>
-<!-- 
-  overflow-hidden  → disable all scrolling
-  lg:overflow-auto → re-enable scrolling at ≥1024px
--->
 <body class="overflow-hidden lg:overflow-auto bg-[#f8f5ee] text-gray-800 scroll-smooth">
+
   <!-- MOBILE UNDER CONSTRUCTION -->
-  <section class="lg:hidden relative w-full h-screen bg-cover bg-center bg-fixed" style="background-image: url('images/vast-knie.png');">
+  <section class="lg:hidden relative w-full h-screen bg-cover bg-center bg-fixed"
+           style="background-image: url('images/vast-knie.png');">
     <!-- Overlay -->
     <div class="absolute inset-0 bg-black/30"></div>
     <!-- Logo -->
@@ -34,9 +33,12 @@
     >
     <!-- Message Box -->
     <div
-      class="absolute left-1/2 transform -translate-x-1/2 bg-white bg-opacity-75 p-8 rounded-lg shadow-lg text-center z-20 h-[25vh] w-[90vw] max-w-full flex items-center justify-center bottom-[76px]"
+      class="message-box absolute left-1/2 transform -translate-x-1/2 bg-white bg-opacity-75 p-8 rounded-lg shadow-lg text-center z-20 h-[25vh] w-[90vw] max-w-full flex items-center justify-center bottom-[76px]"
     >
-      <p class="text-gray-900 font-medium text-center" style="font-size: clamp(1.5rem, 6vw, 2.5rem); line-height: 1.2;">
+      <p
+        class="message-text text-gray-900 font-medium text-center"
+        style="font-size: clamp(1.5rem, 6vw, 2.5rem); line-height: 1.2;"
+      >
         Our mobile website is currently under construction.<br>
         Please open the website in desktop mode.
       </p>
@@ -180,12 +182,31 @@
     © 2025 HUSHR. All rights reserved.
   </p>
 </footer>
-
-
-
-
-
   </div>
+
+  <!-- dynamic‐fit script -->
+  <script>
+    function fitText(container, textEl, minSizePx = 14) {
+      textEl.style.fontSize = '';               // reset to clamp()
+      let fontSize = parseFloat(getComputedStyle(textEl).fontSize);
+      while ((textEl.scrollHeight > container.clientHeight ||
+              textEl.scrollWidth > container.clientWidth) &&
+             fontSize > minSizePx) {
+        fontSize--;
+        textEl.style.fontSize = fontSize + 'px';
+      }
+    }
+
+    function updateFit() {
+      const box = document.querySelector('.message-box');
+      const txt = box.querySelector('.message-text');
+      fitText(box, txt);
+    }
+
+    window.addEventListener('load', updateFit);
+    window.addEventListener('resize', updateFit);
+    window.addEventListener('orientationchange', updateFit);
+  </script>
 
 </body>
 </html>
