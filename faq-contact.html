@@ -51,24 +51,62 @@
       <!-- Contact Form -->
       <div class="bg-white p-8 rounded-lg shadow-md">
         <h2 class="text-2xl font-semibold text-gray-900 mb-4">Send us a message</h2>
-        <form action="#" method="POST" class="space-y-4">
+        <!-- 
+          Door action="mailto:info@hushr.be?subject=New%20Contact%20Message" 
+          krijgt de e-mail een onderwerp “New Contact Message” en opent hij de mailclient.
+          Met enctype="text/plain" worden de formuliervelden in platte tekst in de mail‐body geplaatst.
+        -->
+        <form 
+          action="mailto:info@hushr.be?subject=New%20Contact%20Message" 
+          method="POST" 
+          enctype="text/plain" 
+          class="space-y-4"
+        >
           <div>
             <label for="name" class="block text-gray-700 mb-1">Name</label>
-            <input type="text" id="name" name="name" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" />
+            <input 
+              type="text" 
+              id="name" 
+              name="Name" 
+              required 
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" 
+            />
           </div>
           <div>
             <label for="email" class="block text-gray-700 mb-1">Email</label>
-            <input type="email" id="email" name="email" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" />
+            <input 
+              type="email" 
+              id="email" 
+              name="Email" 
+              required 
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" 
+            />
           </div>
           <div>
             <label for="subject" class="block text-gray-700 mb-1">Subject</label>
-            <input type="text" id="subject" name="subject" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" />
+            <input 
+              type="text" 
+              id="subject" 
+              name="Subject" 
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]" 
+            />
           </div>
           <div>
             <label for="message" class="block text-gray-700 mb-1">Message</label>
-            <textarea id="message" name="message" rows="4" required class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]"></textarea>
+            <textarea 
+              id="message" 
+              name="Message" 
+              rows="4" 
+              required 
+              class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#cfcac3]"
+            ></textarea>
           </div>
-          <button type="submit" class="bg-[#2f2a25] text-white px-5 py-2 rounded-lg hover:opacity-90">Send Message</button>
+          <button 
+            type="submit" 
+            class="bg-[#2f2a25] text-white px-5 py-2 rounded-lg hover:opacity-90"
+          >
+            Send Message
+          </button>
         </form>
       </div>
     </div>
