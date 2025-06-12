@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us - HUSHR</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Show/hide desktop vs mobile nav at 500px */
+    @media (max-width: 500px) {
+      .desktop-nav { display: none; }
+      .mobile-nav  { display: block; }
+    }
+    @media (min-width: 501px) {
+      .mobile-nav  { display: none; }
+    }
+  </style>
 </head>
 <body class="bg-[#f8f5ee] text-gray-800">
 
@@ -15,168 +25,196 @@
       <a href="index.html">
         <img src="images/logo.png" alt="HUSHR logo" class="h-6">
       </a>
-      <!-- Menu -->
-      <nav class="space-x-6 text-gray-700 text-sm font-medium">
+
+      <!-- desktop links -->
+      <nav class="desktop-nav space-x-6 text-gray-700 text-sm font-medium">
         <a href="index.html" class="hover:underline">Home</a>
         <a href="about.html" class="hover:underline">About us</a>
         <a href="products.html" class="hover:underline">Products</a>
         <a href="faq-contact.html" class="hover:underline">FAQ & Contact</a>
       </nav>
+
+      <!-- mobile hamburger button -->
+      <button id="menu-btn" class="mobile-nav p-2 focus:outline-none" aria-label="Open menu">
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
   </header>
 
-<!-- ABOUT US IMAGE SECTION -->
-<section class="w-full px-4 mt-12"> <!-- decreased margin-top -->
-  <div class="relative flex justify-start items-start pl-[450px]"> <!-- added left padding -->
-    <img src="images/Groter-handen.png"
-         alt="Hands with mycelium panels"
-         class="w-[100%] h-[600px] object-cover rounded-lg shadow-lg mt-2"> <!-- reduced top margin -->
+  <!-- mobile overlay menu -->
+  <div
+    id="mobile-menu"
+    class="mobile-nav hidden fixed top-0 right-0 m-4 bg-white z-50 p-6 rounded-lg shadow-lg max-w-xs w-auto"
+  >
+    <nav class="flex flex-col space-y-6 text-xl font-medium text-gray-800">
+      <a href="index.html" class="hover:underline">Home</a>
+      <a href="about.html" class="hover:underline">About us</a>
+      <a href="products.html" class="hover:underline">Products</a>
+      <a href="faq-contact.html" class="hover:underline">FAQ & Contact</a>
+    </nav>
   </div>
-</section>
 
 
-<!-- ABOUT TEXT OVER PHOTO -->
-<div class="absolute top-[20px] left-[200px] z-20">
-  <h1 class="text-[150px] font-bold text-gray-900 leading-tight mb-60">ABOUT</h1>
-</div>
-<div class="absolute top-[150px] left-[190px] z-20">
-  <h1 class="text-[150px] font-bold text-gray-900 leading-tight mb-60">US</h1>
-</div>
-
-<!-- BOTTOM LEFT TEXT IN WHITE BOX -->
-<div class="absolute top-[400px] left-[120px] z-20 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg max-w-[18rem]">
-  <p class="text-gray-700 text-lg text-justify leading-relaxed">
-    We design with nature to create sustainable, functional design panels that elevate any space and are built to last.
-  </p>
-</div>
-<!-- MISSION & VISION SECTION -->
-<section class="bg-[#f8f5ee] py-20 px-6">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-    <!-- Mission Block -->
-    <div class="bg-[#eee8dd] p-10 rounded-lg shadow-md">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h2>
-      <p class="text-gray-700 text-lg mb-4 text-justify">
-        At HUSHR, we’re committed to reshaping how spaces sound and feel through sustainable innovation.
-We grow natural acoustic solutions that support a better future, by building on what yesterday left behind.
-      </p>
-      <p class="text-gray-700 text-lg text-justify">
-        Harnessing the power of mycelium, our panels are grown using agricultural waste streams and are fully biodegradable.
-We offer eco-conscious solutions that never compromise on quality, creativity, or the future of our planet.
-      </p>
+  <!-- ABOUT US IMAGE SECTION -->
+  <section class="w-full px-4 mt-12">
+    <div class="relative flex justify-start items-start pl-[450px]">
+      <img src="images/Groter-handen.png"
+           alt="Hands with mycelium panels"
+           class="w-full h-[600px] object-cover rounded-lg shadow-lg mt-2">
     </div>
+  </section>
 
-    <!-- Vision Block -->
-    <div class="bg-[#eee8dd] p-10 rounded-lg shadow-md">
-      <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h2>
-      <p class="text-gray-700 text-lg mb-4 text-justify">
-        At HUSHR, we envision a world where the spaces we live enhance our wellbeing through natural materials and thoughtful design. 
-        A world where acoustic comfort, aesthetic value, and environmental responsibility go hand in hand.
-      </p>
-      <p class="text-gray-700 text-lg text-justify">
-        We strive to be part of the pioneers leading the transition toward truly sustainable building practices, 
-        proving that nature already holds the answers. By working with it, not against it, we elevate spaces where innovation and ecological harmony coexist.
-      </p>
-    </div>
+  <!-- ABOUT TEXT OVER PHOTO -->
+  <div class="absolute top-[20px] left-[200px] z-20">
+    <h1 class="text-[150px] font-bold text-gray-900 leading-tight mb-60">ABOUT</h1>
   </div>
-</section>
+  <div class="absolute top-[150px] left-[190px] z-20">
+    <h1 class="text-[150px] font-bold text-gray-900 leading-tight mb-60">US</h1>
+  </div>
 
-<!-- MEET OUR TEAM SECTION -->
-<section class="bg-[#f0eae0] py-20 px-6">
-  <div class="max-w-7xl mx-auto text-center mb-12">
-    <h2 class="text-3xl font-semibold text-gray-900 mb-4">Meet the HUSHR team</h2>
-    <p class="text-gray-700 text-lg max-w-2xl mx-auto">
-      Design-driven minds, growing a better future together.
+  <!-- BOTTOM LEFT TEXT IN WHITE BOX -->
+  <div class="absolute top-[400px] left-[120px] z-20 bg-white bg-opacity-90 p-6 rounded-lg shadow-lg max-w-[18rem]">
+    <p class="text-gray-700 text-lg text-justify leading-relaxed">
+      We design with nature to create sustainable, functional design panels that elevate any space and are built to last.
     </p>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-  <!-- Team Member 1 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/ewout.jpg" alt="Ewout" class="w-full h-64 object-cover">
-    <div class="p-6 text-left">
-      <h3 class="text-lg font-semibold text-gray-900">Ewout Decorte</h3>
-      <p class="text-sm text-gray-600 mb-2">Business manager</p>
-      <p class="text-gray-700 text-sm">
-        <a href="mailto:ewout@hushr.be" class="text-blue-600 hover:underline">ewout@hushr.be</a>
-      </p>
-    </div>
-  </div>
+  <!-- MISSION & VISION SECTION -->
+  <section class="bg-[#f8f5ee] py-20 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Mission Block -->
+      <div class="bg-[#eee8dd] p-10 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Mission</h2>
+        <p class="text-gray-700 text-lg mb-4 text-justify">
+          At HUSHR, we’re committed to reshaping how spaces sound and feel through sustainable innovation.
+          We grow natural acoustic solutions that support a better future, by building on what yesterday left behind.
+        </p>
+        <p class="text-gray-700 text-lg text-justify">
+          Harnessing the power of mycelium, our panels are grown using agricultural waste streams and are fully biodegradable.
+          We offer eco-conscious solutions that never compromise on quality, creativity, or the future of our planet.
+        </p>
+      </div>
 
-  <!-- Team Member 2 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/Lotte.jpg" alt="Lotte" class="w-full h-64 object-cover">
-    <div class="p-6 text-left">
-      <h3 class="text-lg font-semibold text-gray-900">Lotte Van den Broeck</h3>
-      <p class="text-sm text-gray-600 mb-2">Product developer</p>
-      <p class="text-gray-700 text-sm">
-        <a href="mailto:lotte@hushr.be" class="text-blue-600 hover:underline">lotte@hushr.be</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Team Member 3 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/Pauline.jpg" alt="Pauline" class="w-full h-64 object-cover">
-    <div class="p-6 text-left">
-      <h3 class="text-lg font-semibold text-gray-900">Pauline Henderix</h3>
-      <p class="text-sm text-gray-600 mb-2">Bio-engineer</p>
-      <p class="text-gray-700 text-sm">
-        <a href="mailto:pauline@hushr.be" class="text-blue-600 hover:underline">pauline@hushr.be</a>
-      </p>
-    </div>
-  </div>
-
-  <!-- Team Member 4 -->
-  <div class="bg-white rounded-lg shadow-md overflow-hidden">
-    <img src="images/Falco.jpg" alt="Falco" class="w-full h-64 object-cover">
-    <div class="p-6 text-left">
-      <h3 class="text-lg font-semibold text-gray-900">Falco Dhoop</h3>
-      <p class="text-sm text-gray-600 mb-2">Business economist</p>
-      <p class="text-gray-700 text-sm">
-        <a href="mailto:falco@hushr.be" class="text-blue-600 hover:underline">falco@hushr.be</a>
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER SECTION -->
-<footer class="relative bg-[#2f2a25] text-[#cfcac3] pt-16 pb-10 mt-16">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Logo & slogan -->
-    <div>
-      <div class="inline-block bg-white rounded-2xl p-6 mb-4">
-        <img src="images/logo.png" alt="HUSHR logo" class="h-20 w-auto mx-auto">
-        <p class="mt-4 text-center text-gray-900 font-medium">
-          Sound hushed by Nature.
+      <!-- Vision Block -->
+      <div class="bg-[#eee8dd] p-10 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold text-gray-900 mb-4">Our Vision</h2>
+        <p class="text-gray-700 text-lg mb-4 text-justify">
+          At HUSHR, we envision a world where the spaces we live enhance our wellbeing through natural materials and thoughtful design.
+          A world where acoustic comfort, aesthetic value, and environmental responsibility go hand in hand.
+        </p>
+        <p class="text-gray-700 text-lg text-justify">
+          We strive to be part of the pioneers leading the transition toward truly sustainable building practices,
+          proving that nature already holds the answers. By working with it, not against it, we elevate spaces where innovation and ecological harmony coexist.
         </p>
       </div>
     </div>
+  </section>
 
-    <!-- Contact (rechts uitgelijnd) -->
-    <div class="text-right">
-      <h3 class="text-white font-semibold mb-4">Contact</h3>
-      <ul class="space-y-2">
-        <li><a href="mailto:info@hushr.be" class="hover:underline">info@hushr.be</a></li>
-        <li>+32 (0) 497 14 06 01</li>
-        <li>Leuven, Belgium</li>
-      </ul>
-      <div class="flex justify-end space-x-4 mt-4">
-        <a href="https://instagram.com" target="_blank" class="hover:opacity-80">
-          <!-- SVG icon -->
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="hover:opacity-80">
-          <!-- SVG icon -->
-        </a>
+  <!-- MEET OUR TEAM SECTION -->
+  <section class="bg-[#f0eae0] py-20 px-6">
+    <div class="max-w-7xl mx-auto text-center mb-12">
+      <h2 class="text-3xl font-semibold text-gray-900 mb-4">Meet the HUSHR team</h2>
+      <p class="text-gray-700 text-lg max-w-2xl mx-auto">
+        Design-driven minds, growing a better future together.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+      <!-- Team Member 1 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/ewout.jpg" alt="Ewout" class="w-full h-64 object-cover">
+        <div class="p-6 text-left">
+          <h3 class="text-lg font-semibold text-gray-900">Ewout Decorte</h3>
+          <p class="text-sm text-gray-600 mb-2">Business manager</p>
+          <p class="text-gray-700 text-sm">
+            <a href="mailto:ewout@hushr.be" class="text-blue-600 hover:underline">ewout@hushr.be</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Member 2 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/Lotte.jpg" alt="Lotte" class="w-full h-64 object-cover">
+        <div class="p-6 text-left">
+          <h3 class="text-lg font-semibold text-gray-900">Lotte Van den Broeck</h3>
+          <p class="text-sm text-gray-600 mb-2">Product developer</p>
+          <p class="text-gray-700 text-sm">
+            <a href="mailto:lotte@hushr.be" class="text-blue-600 hover:underline">lotte@hushr.be</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Member 3 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/Pauline.jpg" alt="Pauline" class="w-full h-64 object-cover">
+        <div class="p-6 text-left">
+          <h3 class="text-lg font-semibold text-gray-900">Pauline Henderix</h3>
+          <p class="text-sm text-gray-600 mb-2">Bio-engineer</p>
+          <p class="text-gray-700 text-sm">
+            <a href="mailto:pauline@hushr.be" class="text-blue-600 hover:underline">pauline@hushr.be</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Team Member 4 -->
+      <div class="bg-white rounded-lg shadow-md overflow-hidden">
+        <img src="images/Falco.jpg" alt="Falco" class="w-full h-64 object-cover">
+        <div class="p-6 text-left">
+          <h3 class="text-lg font-semibold text-gray-900">Falco Dhoop</h3>
+          <p class="text-sm text-gray-600 mb-2">Business economist</p>
+          <p class="text-gray-700 text-sm">
+            <a href="mailto:falco@hushr.be" class="text-blue-600 hover:underline">falco@hushr.be</a>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Gecentreerd, op de hoogte waar de witte box eindigt -->
-  <p class="absolute inset-x-0 bottom-10 text-center text-sm">
-    © 2025 HUSHR. All rights reserved.
-  </p>
-</footer>
+  <!-- FOOTER SECTION -->
+  <footer class="relative bg-[#2f2a25] text-[#cfcac3] pt-16 pb-10 mt-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Logo & slogan -->
+      <div>
+        <div class="inline-block bg-white rounded-2xl p-6 mb-4">
+          <img src="images/logo.png" alt="HUSHR logo" class="h-20 w-auto mx-auto">
+          <p class="mt-4 text-center text-gray-900 font-medium">
+            Sound hushed by Nature.
+          </p>
+        </div>
+      </div>
 
+      <!-- Contact (right-aligned) -->
+      <div class="text-right">
+        <h3 class="text-white font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="mailto:info@hushr.be" class="hover:underline">info@hushr.be</a></li>
+          <li>+32 (0) 497 14 06 01</li>
+          <li>Leuven, Belgium</li>
+        </ul>
+        <div class="flex justify-end space-x-4 mt-4">
+          <a href="https://instagram.com" target="_blank" class="hover:opacity-80">
+            <!-- SVG icon -->
+          </a>
+          <a href="https://linkedin.com" target="_blank" class="hover:opacity-80">
+            <!-- SVG icon -->
+          </a>
+        </div>
+      </div>
+    </div>
+    <p class="absolute inset-x-0 bottom-10 text-center text-sm">
+      © 2025 HUSHR. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- menu toggle script -->
+  <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  </script>
 
 </body>
 </html>

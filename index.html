@@ -5,208 +5,167 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HUSHR</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- custom responsive rules -->
   <style>
-    /* Logo adjustments under 500px */
+    /* Show/hide desktop vs mobile nav at 500px */
     @media (max-width: 500px) {
-      .logo-mobile {
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        height: 8vh !important;
-      }
+      .desktop-nav { display: none; }
+      .mobile-nav  { display: block; }
+    }
+    @media (min-width: 501px) {
+      .mobile-nav  { display: none; }
     }
   </style>
 </head>
-<body class="overflow-hidden lg:overflow-auto bg-[#f8f5ee] text-gray-800 scroll-smooth">
+<body class="bg-[#f8f5ee] text-gray-800 scroll-smooth">
 
-  <!-- MOBILE UNDER CONSTRUCTION -->
-  <section class="lg:hidden relative w-full h-screen bg-cover bg-center bg-fixed"
-           style="background-image: url('images/vast-knie.png');">
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/30"></div>
-    <!-- Logo -->
-    <img
-      src="images/HUSHR-overlay.png"
-      alt="HUSHR logo"
-      class="logo-mobile absolute top-4 left-4 h-[16.666vh] z-20"
-    >
-    <!-- Message Box -->
-    <div
-      class="message-box absolute left-1/2 transform -translate-x-1/2 bg-white bg-opacity-75 p-8 rounded-lg shadow-lg text-center z-20 h-[25vh] w-[90vw] max-w-full flex items-center justify-center bottom-[76px]"
-    >
-      <p
-        class="message-text text-gray-900 font-medium text-center"
-        style="font-size: clamp(1.5rem, 6vw, 2.5rem); line-height: 1.2;"
-      >
-        Our mobile website is currently under construction.<br>
-        Please open the website in desktop mode.
+  <!-- NAVIGATION -->
+  <header class="w-full px-6 py-4 border-b border-gray-200 sticky top-0 bg-[#f8f5ee] z-50">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="index.html">
+        <img src="images/logo.png" alt="HUSHR logo" class="h-6">
+      </a>
+
+      <!-- desktop links -->
+      <nav class="desktop-nav space-x-6 text-gray-700 text-sm font-medium">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="about.html" class="hover:underline">About us</a>
+        <a href="products.html" class="hover:underline">Products</a>
+        <a href="faq-contact.html" class="hover:underline">FAQ & Contact</a>
+      </nav>
+
+      <!-- mobile hamburger button -->
+      <button id="menu-btn" class="mobile-nav p-2 focus:outline-none" aria-label="Open menu">
+        <!-- simple hamburger icon -->
+        <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- mobile overlay menu -->
+<!-- mobile overlay menu -->
+<div
+  id="mobile-menu"
+  class="mobile-nav hidden fixed top-0 right-0 m-4 bg-white z-50 p-6 rounded-lg shadow-lg max-w-xs w-auto"
+>
+  <nav class="flex flex-col space-y-6 text-xl font-medium text-gray-800">
+    <a href="index.html" class="hover:underline">Home</a>
+    <a href="about.html" class="hover:underline">About us</a>
+    <a href="products.html" class="hover:underline">Products</a>
+    <a href="faq-contact.html" class="hover:underline">FAQ & Contact</a>
+  </nav>
+</div>
+
+
+  <!-- HERO SECTION -->
+  <section class="relative w-full h-[700px] bg-cover bg-center" style="background-image: url('images/mycelium-panels.jpg');">
+    <div class="absolute inset-0 bg-black/10 z-0"></div>
+    <div class="absolute top-12 inset-x-12 max-w-xl bg-white bg-opacity-90 p-10 rounded-lg z-10">
+      <div class="flex justify-center mb-6">
+        <img src="images/HUSHR-overlay.png" alt="HUSHR logo" class="w-[400px] max-w-full">
+      </div>
+      <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-6 text-center">Sound hushed by nature</h1>
+      <p class="text-lg text-gray-700 text-justify mb-6">
+        Discover our revolutionary mycelium panels that naturally absorb sound while adding organic beauty to any space. Sustainable, lightweight, and naturally insulating.
+      </p>
+      <div class="flex gap-4">
+        <a href="products.html" class="px-6 py-3 bg-black text-white text-sm font-semibold rounded hover:bg-gray-900">Explore our products</a>
+        <a href="faq-contact.html#contact" class="px-6 py-3 border border-gray-700 text-sm font-semibold rounded hover:bg-gray-100">Start your project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT ARE MYCELIUM PANELS SECTION -->
+  <section class="bg-[#f8f5ee] pt-16 pb-16">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-semibold text-gray-900 mb-6 mt-2">What are Mycelium panels?</h2>
+      <p class="text-lg text-gray-700 mb-0 text-justify">
+        Mycelium panels are sustainable, functional design solutions made from the root structure of mushrooms. Our innovative panels offer natural sound absorption while being entirely biodegradable, combining functionality with aesthetics to bring nature's beauty inside. 
       </p>
     </div>
   </section>
 
-  <!-- DESKTOP CONTENT -->
-  <div class="hidden lg:block">
-    <!-- NAVIGATION -->
-    <header class="w-full px-6 py-4 border-b border-gray-200 sticky top-0 bg-[#f8f5ee] z-50">
-      <div class="max-w-6xl mx-auto flex items-center justify-between">
-        <!-- Logo -->
-        <a href="index.html">
-          <img src="images/logo.png" alt="HUSHR logo" class="h-6">
-        </a>
-        <!-- Menu -->
-        <nav class="space-x-6 text-gray-700 text-sm font-medium">
-          <a href="index.html" class="hover:underline">Home</a>
-          <a href="about.html" class="hover:underline">About us</a>
-          <a href="products.html" class="hover:underline">Products</a>
-          <a href="faq-contact.html" class="hover:underline">FAQ & Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <!-- HERO SECTION OVER IMAGE -->
-    <section class="relative w-full h-[700px] bg-cover bg-center" style="background-image: url('images/mycelium-panels.jpg');">
-      <div class="absolute inset-0 bg-black/10 z-0"></div>
-      <div class="absolute top-24 left-12 max-w-xl bg-white bg-opacity-90 p-10 rounded-lg z-10">
-        <div class="flex justify-center mb-6">
-          <img src="images/HUSHR-overlay.png" alt="HUSHR logo" class="w-[400px] max-w-full">
+  <!-- WHY CHOOSE HUSHR SECTION -->
+  <section class="bg-[#eee8dd] pt-16 pb-20">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-semibold text-gray-900 mb-12">Why choose HUSHR panels?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-lg p-6 text-left shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation that lasts</h3>
+          <p class="text-gray-700 text-justify">
+            Crafted from mycelium, our panels are made using one of nature’s most innovative and sustainable materials.<br>
+            This allows us to offer an eco-conscious solution without compromising on quality, creativity, or the planet’s future.
+          </p>
         </div>
-        <h1 class="text-3xl font-bold text-gray-900 leading-tight mb-6 text-center">Sound hushed by nature</h1>
-        <p class="text-lg text-gray-700 text-justify mb-6">
-          Discover our revolutionary mycelium panels that naturally absorb sound while adding organic beauty to any space. Sustainable, lightweight, and naturally insulating.
-        </p>
-        <div class="flex gap-4">
-          <a href="products.html" class="px-6 py-3 bg-black text-white text-sm font-semibold rounded hover:bg-gray-900">Explore our products</a>
-          <a href="faq-contact.html#contact" class="px-6 py-3 border border-gray-700 text-sm font-semibold rounded hover:bg-gray-100">Start your project</a>
+        <div class="bg-white rounded-lg p-6 text-left shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Acoustics that listen</h3>
+          <p class="text-gray-700 text-justify">
+            Your vision is our goal. From the first sketch to the final installation, together, we can grow any project into a personal solution that perfectly fits your space, story, and style.
+          </p>
+        </div>
+        <div class="bg-white rounded-lg p-6 text-left shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Design that performs</h3>
+          <p class="text-gray-700 text-justify">
+            We create acoustic panels that not only reduce reverberation time, but also enhance the visual identity of your space. Thoughtfully designed to balance form and function, our panels are made to be seen as much as they are to be heard.
+          </p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- WHAT ARE MYCELIUM PANELS SECTION -->
-<section class="bg-[#f8f5ee] pt-16 pb-16">
-  <div class="max-w-2xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-semibold text-gray-900 mb-6 mt-2">
-      What are Mycelium panels?
-    </h2>
-    <p class="text-lg text-gray-700 mb-0 text-justify">
-      Mycelium panels are sustainable, functional design solutions made from the root structure of mushrooms. Our innovative panels offer natural sound absorption while being entirely biodegradable, combining functionality with aesthetics to bring nature's beauty inside. 
-    </p>
-  </div>
-</section>
-
-<!-- WHY CHOOSE HUSHR SECTION -->
-<section class="bg-[#eee8dd] pt-16 pb-20">
-  <div class="max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-3xl font-semibold text-gray-900 mb-12">Why choose HUSHR panels?</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-lg p-6 text-left shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Innovation that lasts</h3>
-        <p class="text-gray-700 text-justify">
-          Crafted from mycelium, our panels are made using one of nature’s most innovative and sustainable materials.<br>
-          This allows us to offer an eco-conscious solution without compromising on quality, creativity, or the planet’s future.
+  <!-- CALL TO ACTION SECTION -->
+  <section class="bg-[#f8f5ee] mt-20 px-4">
+    <div class="max-w-7xl mx-auto overflow-hidden rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2">
+      <div class="bg-[#2f2a25] text-white px-10 py-20 flex flex-col justify-center">
+        <h2 class="text-3xl font-semibold mb-6">Ready to explore nature's beauty?</h2>
+        <p class="text-lg text-[#cfcac3] mb-8">
+          Elevate your space with our functional design panels. Let's grow your solution today, with tomorrow in mind.
         </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="products.html" class="px-6 py-3 bg-[#e4ddcb] text-[#2f2a25] font-semibold rounded hover:bg-[#d8d1c1]">Explore our products</a>
+          <a href="faq-contact.html" class="px-6 py-3 border border-white text-white font-semibold rounded hover:bg-white hover:text-[#2f2a25] transition">Start your project</a>
+        </div>
       </div>
-      <div class="bg-white rounded-lg p-6 text-left shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Acoustics that listen</h3>
-        <p class="text-gray-700 text-justify">
-          Your vision is our goal. From the first sketch to the final installation, together, we can grow any project into a personal solution that perfectly fits your space, story, and style.
-        </p>
-      </div>
-      <div class="bg-white rounded-lg p-6 text-left shadow-sm">
-        <h3 class="text-lg font-semibold text-gray-900 mb-2">Design that performs</h3>
-        <p class="text-gray-700 text-justify">
-          We create acoustic panels that not only reduce reverberation time, but also enhance the visual identity of your space. Thoughtfully designed to balance form and function, our panels are made to be seen as much as they are to be heard.
-        </p>
+      <div class="h-full">
+        <img src="images/mycelium-polle.jpg" alt="Woman touching mycelium panel" class="w-full h-full object-cover">
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
- <!-- CALL TO ACTION SECTION -->
-<section class="bg-[#f8f5ee] mt-20 px-4">
-  <div class="max-w-7xl mx-auto overflow-hidden rounded-2xl shadow-lg grid grid-cols-1 md:grid-cols-2">
-    <div class="bg-[#2f2a25] text-white px-10 py-20 flex flex-col justify-center">
-      <h2 class="text-3xl font-semibold mb-6">Ready to explore nature's beauty?</h2>
-      <p class="text-lg text-[#cfcac3] mb-8">
-        Elevate your space with our functional design panels. Let's grow your solution today, with tomorrow in mind.
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="products.html" class="px-6 py-3 bg-[#e4ddcb] text-[#2f2a25] font-semibold rounded hover:bg-[#d8d1c1]">
-          Explore our products
-        </a>
-        <a href="faq-contact.html" class="px-6 py-3 border border-white text-white font-semibold rounded hover:bg-white hover:text-[#2f2a25] transition">
-          Start your project
-        </a>
+  <!-- FOOTER SECTION -->
+  <footer class="relative bg-[#2f2a25] text-[#cfcac3] pt-16 pb-10 mt-16">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div>
+        <div class="inline-block bg-white rounded-2xl p-6 mb-4">
+          <img src="images/logo.png" alt="HUSHR logo" class="h-20 w-auto mx-auto">
+          <p class="mt-4 text-center text-gray-900 font-medium">Sound hushed by Nature.</p>
+        </div>
+      </div>
+      <div class="text-right">
+        <h3 class="text-white font-semibold mb-4">Contact</h3>
+        <ul class="space-y-2">
+          <li><a href="mailto:info@hushr.be" class="hover:underline">info@hushr.be</a></li>
+          <li>+32 (0) 497 14 06 01</li>
+          <li>Leuven, Belgium</li>
+        </ul>
+        <div class="flex justify-end space-x-4 mt-4">
+          <a href="https://instagram.com" target="_blank" class="hover:opacity-80"></a>
+          <a href="https://linkedin.com" target="_blank" class="hover:opacity-80"></a>
+        </div>
       </div>
     </div>
-    <div class="h-full">
-      <img src="images/mycelium-polle.jpg" alt="Woman touching mycelium panel" class="w-full h-full object-cover">
-    </div>
-  </div>
-</section>
+    <p class="absolute inset-x-0 bottom-10 text-center text-sm">© 2025 HUSHR. All rights reserved.</p>
+  </footer>
 
-
-<!-- FOOTER SECTION -->
-<footer class="relative bg-[#2f2a25] text-[#cfcac3] pt-16 pb-10 mt-16">
-  <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-    <!-- Logo & slogan -->
-    <div>
-      <div class="inline-block bg-white rounded-2xl p-6 mb-4">
-        <img src="images/logo.png" alt="HUSHR logo" class="h-20 w-auto mx-auto">
-        <p class="mt-4 text-center text-gray-900 font-medium">
-          Sound hushed by Nature.
-        </p>
-      </div>
-    </div>
-
-    <!-- Contact (rechts uitgelijnd) -->
-    <div class="text-right">
-      <h3 class="text-white font-semibold mb-4">Contact</h3>
-      <ul class="space-y-2">
-        <li><a href="mailto:info@hushr.be" class="hover:underline">info@hushr.be</a></li>
-        <li>+32 (0) 497 14 06 01</li>
-        <li>Leuven, Belgium</li>
-      </ul>
-      <div class="flex justify-end space-x-4 mt-4">
-        <a href="https://instagram.com" target="_blank" class="hover:opacity-80">
-          <!-- SVG icon -->
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="hover:opacity-80">
-          <!-- SVG icon -->
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Gecentreerd, op de hoogte waar de witte box eindigt -->
-  <p class="absolute inset-x-0 bottom-10 text-center text-sm">
-    © 2025 HUSHR. All rights reserved.
-  </p>
-</footer>
-  </div>
-
-  <!-- dynamic‐fit script -->
+  <!-- menu toggle script -->
   <script>
-    function fitText(container, textEl, minSizePx = 14) {
-      textEl.style.fontSize = '';               // reset to clamp()
-      let fontSize = parseFloat(getComputedStyle(textEl).fontSize);
-      while ((textEl.scrollHeight > container.clientHeight ||
-              textEl.scrollWidth > container.clientWidth) &&
-             fontSize > minSizePx) {
-        fontSize--;
-        textEl.style.fontSize = fontSize + 'px';
-      }
-    }
-
-    function updateFit() {
-      const box = document.querySelector('.message-box');
-      const txt = box.querySelector('.message-text');
-      fitText(box, txt);
-    }
-
-    window.addEventListener('load', updateFit);
-    window.addEventListener('resize', updateFit);
-    window.addEventListener('orientationchange', updateFit);
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const closeBtn = document.getElementById('menu-close');
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    closeBtn.addEventListener('click', () => menu.classList.add('hidden'));
   </script>
 
 </body>
